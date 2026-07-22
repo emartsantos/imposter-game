@@ -1,13 +1,8 @@
 node_modules/
 .next/
 out/
+.git/
 tsconfig.tsbuildinfo
-prisma/migrations/
 *.db
 .env
 .env.local
-.turbo/
-android/
-ios/
-.expo/
-*.apk
