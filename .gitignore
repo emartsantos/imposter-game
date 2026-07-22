@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+prisma/migrations/
+*.db
+.env
+.env.local
+.turbo/
+android/
+ios/
+.expo/
+*.apk

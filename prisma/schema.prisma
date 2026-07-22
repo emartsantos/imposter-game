@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Room {
+  id            String   @id @default(uuid())
+  code          String   @unique
+  isPublic      Boolean  @default(false)
+  maxPlayers    Int      @default(20)
+  status        String   @default("lobby")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  players       Player[]
+  gameRounds    GameRound[]
+}
+
+model Player {
+  id            String   @id @default(uuid())
+  name          String
+  socketId      String?
+  strikes       Int      @default(0)
+  isActive      Boolean  @default(true)
+  isHost        Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  roomId        String
+  room          Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  @@unique([roomId, name])
+}
+
+model GameRound {
+  id            String   @id @default(uuid())
+  roundNumber   Int
+  secretWord    String
+  category      String
+  imposterIds   String
+  status        String   @default("active")
+  startedAt     DateTime @default(now())
+  endedAt       DateTime?
+
+  roomId        String
+  room          Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+}
