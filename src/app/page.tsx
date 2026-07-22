@@ -119,7 +119,7 @@ export default function HomePage() {
                 <div className="flex-1 min-w-0">
                   <h2 className="text-base font-bold text-gray-800">Online Multiplayer</h2>
                   <p className="text-gray-400 text-xs mt-0.5">
-                    Laruin sa iba't ibang device
+                    Laruin sa iba&apos;t ibang device
                   </p>
                 </div>
                 <svg className="w-4 h-4 text-gray-300 flex-shrink-0 group-hover:text-gray-500 transition-all group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
